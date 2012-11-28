@@ -8,10 +8,15 @@
 package edu.wpi.first.wpilibj.templates;
 
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SimpleRobot;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,26 +27,40 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class Team522Robot extends SimpleRobot {
 
-    RobotDrive drive = new RobotDrive(1, 2);
+    RobotDrive drive = new RobotDrive(1, 2, 3, 4);
     Joystick leftStick = new Joystick(1);
     Joystick rightStick = new Joystick(2);
-
+    Joystick thirdStick = new Joystick (3);
+//    Compressor air = new Compressor(1,1);
+    Compressor air = new Compressor(1,1);
+    Solenoid sol1 = new Solenoid(7); 
+    Solenoid sol2 = new Solenoid(8); 
+    
     public Team522Robot() {
-        getWatchdog().setEnabled(false);
+
     }
     
     public void autonomous() {
-        for(int i = 0; i < 4; i++){
-            drive.drive(0.5, 0.0);
-            Timer.delay(2.0);
-            drive.drive(0.0, 0.0);
-        }
-       drive.drive(0.0, 0.0); 
+ //       air.start();
+        getWatchdog().setEnabled(false);        
+        
+//        sol1.set(false);
+//      sol2.set(true);
+        
+        drive.drive(0.2, 0.2);
+        
+//        for(int i = 0; i < 4; i++){
+//           drive.drive(0.5, 0.0);
+//            Timer.delay(2.0);
+//            drive.drive(0.0, 0.0);
+//        }
+//       drive.drive(0.0, 0.0); 
     }
-
+    
     public void operatorControl() {
         while(isOperatorControl() && isEnabled()){
-            drive.tankDrive(leftStick, rightStick);
+            drive.tankDrive(leftStick.getY(), rightStick.getY());
+            //SmartDashboard.putString(leftStick.getX() + " , " + leftStick.getY() + " , " + leftStick.getZ() + " +" , ERRORS_TO_DRIVERSTATION_PROP);
             Timer.delay(0.005);
         }
     }
