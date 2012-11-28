@@ -3,17 +3,29 @@ JavaTest
 RoboWizards Repo for testing Java with FRC. Currently being used to program Lucy.
 
 
-Commits & Pull Request
+Guidelines, Commits, Pull Request
 ========
-###Commits
-*Use the title for a specific reason! 
+###Guidelines
+* Stay with the code style! (Suns coding style, default by Netbeans)
+* Use +, -, or * in your change messages! Ex: +TankDrive. Adresses issue #5.
+* Variables should be **clear and not random**.
+* If you add a feature document it on the wiki
+* Fully test your code before sending a pull request (Checklist will be made as we go). Major changes should use there own branch.
 
+###Commits
+* Use the title for a specific reason! Keep specifics in the extra 
+* Don't spam commits! This makes it easier to seen what you changed. However, make sure your commit isn't a mix of   random changes.
+
+###Pull Request
+* Try to give a description of what you did, and link it to an issue if you can.
+* Keep 1 feature per pull request
 
 Issue Tracker
 ========
 * ToDo issues should be left to lead developer.
 * Follow format when creating issues! It takes a few extra seconds & keeps everything much clearer to understand
 * Remember to close issues! This helps me keep track of who is doing what & what needs to be done, fixed etc.
+* Check closed issues first, see if the problem has a fix already been done.
 
 ###ToDo issue
 
