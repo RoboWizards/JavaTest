@@ -33,8 +33,8 @@ public class Team522Robot extends SimpleRobot {
     Joystick thirdStick = new Joystick (3);
 //    Compressor air = new Compressor(1,1);
     Compressor air = new Compressor(1,1);
-    Solenoid sol1 = new Solenoid(7); 
-    Solenoid sol2 = new Solenoid(8); 
+    Solenoid pistonDown = new Solenoid(7); 
+    Solenoid pistonUp = new Solenoid(8); 
     
     public Team522Robot() {
 
@@ -46,9 +46,15 @@ public class Team522Robot extends SimpleRobot {
         
 //        sol1.set(false);
 //      sol2.set(true);
+        air.start();
+        Timer.delay(1.0);
+//        sol2.set(true);
+//        sol1.set(false);
         
-        drive.drive(0.2, 0.2);
+        Timer.delay(5.0);
         
+        pistonDown.set(false);
+        pistonUp.set(true);
 //        for(int i = 0; i < 4; i++){
 //           drive.drive(0.5, 0.0);
 //            Timer.delay(2.0);
@@ -62,6 +68,29 @@ public class Team522Robot extends SimpleRobot {
             drive.tankDrive(leftStick.getY(), rightStick.getY());
             //SmartDashboard.putString(leftStick.getX() + " , " + leftStick.getY() + " , " + leftStick.getZ() + " +" , ERRORS_TO_DRIVERSTATION_PROP);
             Timer.delay(0.005);
+            
+            if(thirdStick.getRawButton(1)){
+                deployDoor(true);
+            }
+            else if(thirdStick.getRawButton(3) || thirdStick.getRawButton(2)){
+                deployDoor(false);
+            }
+        }
+    }
+    
+    public void deployDoor(boolean value){
+        
+        if(!air.enabled()){
+            air.start();
+        }
+        
+        if(value){
+            pistonUp.set(true);        
+            pistonDown.set(false);
+        }
+        else{
+            pistonDown.set(true);
+            pistonUp.set(false);
         }
     }
     
