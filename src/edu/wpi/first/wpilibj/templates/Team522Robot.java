@@ -41,20 +41,15 @@ public class Team522Robot extends SimpleRobot {
     }
     
     public void autonomous() {
- //       air.start();
-        getWatchdog().setEnabled(false);        
         
-//        sol1.set(false);
-//      sol2.set(true);
+        //getWatchdog().setEnabled(false);        
         air.start();
-        Timer.delay(1.0);
-//        sol2.set(true);
-//        sol1.set(false);
         
-        Timer.delay(5.0);
+        //drive.drive(-0.5, -0.5);
+        drive.drive(-0.5, -0.5);
+        Timer.delay(2);
+        //drive.drive(0.5,-0.5);
         
-        pistonDown.set(false);
-        pistonUp.set(true);
 //        for(int i = 0; i < 4; i++){
 //           drive.drive(0.5, 0.0);
 //            Timer.delay(2.0);
