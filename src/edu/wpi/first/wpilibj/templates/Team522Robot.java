@@ -56,6 +56,9 @@ public class Team522Robot extends SimpleRobot {
                 deployDoor(false);
             }
             
+            SmartDashboard.putDouble("Joystick 1: ", leftStick.getY());
+            SmartDashboard.putDouble("Joystick 2: ", rightStick.getY()); 
+            
             Timer.delay(0.005);
         }
     }
@@ -70,10 +73,12 @@ public class Team522Robot extends SimpleRobot {
         if(raiseDoor){
             pistonUp.set(true);        
             pistonDown.set(false);
+            SmartDashboard.putString("Door Position: ", "Raised");
         }
         else{
             pistonDown.set(true);
             pistonUp.set(false);
+            SmartDashboard.putString("Door Position: ", "Lowered");
         }
     }
     
