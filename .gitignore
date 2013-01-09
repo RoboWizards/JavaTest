@@ -1,1 +1,7 @@
-/build/
+# project related
+j2meclasses
+nbproject
+resources
+suite
+build.properties
+build.xml
